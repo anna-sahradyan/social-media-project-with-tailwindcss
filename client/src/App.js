@@ -1,11 +1,18 @@
 import React from 'react';
+import 'react-toastify/dist/ReactToastify.css';
+import Layout from "./components/Layout";
+
+
 
 const App = () => {
     return (
         <>
-            <div className={""}>
 
-            </div>
+            <Layout>
+
+
+            </Layout>
+
         </>
     );
 };
