@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e411cc2-8c17-4282-8bba-5baecf39f62e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/server/controllers/post-controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/models/Post.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/routes/posts-router.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/form/Form.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/posts/Post.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Nav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Nav.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1675009710825</updated>
       <workItem from="1675009716508" duration="4917000" />
-      <workItem from="1675081076655" duration="5827000" />
+      <workItem from="1675081076655" duration="12490000" />
     </task>
     <servers />
   </component>

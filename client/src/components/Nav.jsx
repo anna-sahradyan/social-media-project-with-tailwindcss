@@ -1,56 +1,43 @@
 import React from 'react';
-import {Link, NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {toast} from "react-toastify";
+import {Avatar, Button, Toolbar, Typography} from "@material-ui/core";
+
 const Nav = () => {
-    const activeStyles = {
-        color: "white"
-    }
 
     const logoutHandler = () => {
         // dispatch(logout())
         // window.localStorage.removeItem('token')
         toast(`You have left from  system`);
     }
-    const isAuth = false;
+    const isAuth = true;
     return (
         <>
-            <div className={"flex py-4 justify-between items-center bg-blue-800 static"}>
-                <span
-                    className={"flex justify-center items-center w-40 h-8 bg-white text-sx text-black rounded-sm ml-8 font-bold font-sans"}>
-AnnaSocial
-                </span>
-                {isAuth &&
-                    <div className={" absolute  left-40"}>
-                        <ul className={"flex gap-40 "}>
-                            <li><NavLink to={"/"}
-                                         className={"text-sx text-black hover:text-white font-bold"}
-                                         style={({isActive}) => isActive ? activeStyles : undefined}>Home</NavLink></li>
-                            <li><NavLink to={"/post"} className={"text-sx text-black hover:text-white font-bold"}
-                                         style={({isActive}) => isActive ? activeStyles : undefined}>My
-                                Posts</NavLink></li>
-                            <li><NavLink to={"/new"} className={"text-sx text-black hover:text-white font-bold"}
-                                         style={({isActive}) => isActive ? activeStyles : undefined}>Add
-                                Post</NavLink></li>
-                        </ul>
-                    </div>
-                }
+            <div className={"flex  flex-row justify-between  items-center bg-blue-800 static"}>
+                <Link to={`/`}>
+                   <span
+                       className={"flex justify-center items-center w-40 h-8 bg-white text-sx text-black rounded-sm ml-8 font-bold font-sans"}>
+                Memories
+                                </span>
 
-                <div
-                    className={"flex justify-center items-center bg-white text-sx text-white rounded-sm px-4 absolute right-5"}>
-                    {isAuth ?
-                        (
-                            <button onClick={logoutHandler} className={"text-black font-bold items-center "}>sign
-                                out</button>) : (
-                            <Link to={'/login'} className={"text-black font-bold items-center "}>Sign in </Link>
-                        )}
-                </div>
+                </Link>
+                <Toolbar className={"flex w-96 justify-between items-center flex gap-50 relative -left-30"}>
+                    {isAuth ?(<div>
+
+                        <Typography className={"text-xl text-white left-1 absolute top-7"}>
+                            name
+                        </Typography>
+                        <Avatar className={"right-20 top-5"} src={'/img/avatar.png'}>Avatar</Avatar>
+                        <Button variant="contained" color={"secondary"} className={"left-60 -top-6"}>Logout</Button>
+                    </div>):(<Button variant="contained" className={"left-60 -top-0.5 text-white"}>Sign In</Button>)}
+                </Toolbar>
 
 
             </div>
         </>
 
-)
-    ;
+    )
+        ;
 };
 
 export default Nav;
