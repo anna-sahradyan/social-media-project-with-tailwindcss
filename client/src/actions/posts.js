@@ -1,7 +1,7 @@
 import * as api from "../api";
-import {type} from "@testing-library/user-event/dist/type";
 
- export const getPosts = () => async (dispatch) => {
+
+export const getPosts = () => async (dispatch) => {
     try {
         const {data} = await api.fetchPosts();
         dispatch({type: "FETCH_ALL", payload: data});
@@ -10,4 +10,12 @@ import {type} from "@testing-library/user-event/dist/type";
     }
 
 
+}
+export const createPost = (post) => async (dispatch) => {
+    try {
+        const {data} = await api.createPost(post);
+        dispatch({type: "CREATE", payload: data});
+    } catch (err) {
+        console.log(err.message)
+    }
 }

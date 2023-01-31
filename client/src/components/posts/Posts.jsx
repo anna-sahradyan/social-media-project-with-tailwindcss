@@ -7,11 +7,11 @@ const Posts = () => {
 console.log(posts)
     return (
         <>
-            {posts ? (<CircularProgress/>) : (
-                <Grid container alignItems={"stretch"} spacing={3}>
+            {/*{posts ? (<CircularProgress/>) : (*/}
+            {/*    <Grid container alignItems={"stretch"} spacing={3}>*/}
 <h1>hello</h1>
-                </Grid>
-            )}
+                {/*</Grid>*/}
+            {/*)}*/}
 
         </>
     );

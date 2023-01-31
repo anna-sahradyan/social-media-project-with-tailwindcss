@@ -29,7 +29,7 @@ const App = () => {
 
 
             </Routes>
-            {/*<Posts/>*/}
+            <Posts/>
         </Layout>
     </>);
 };
