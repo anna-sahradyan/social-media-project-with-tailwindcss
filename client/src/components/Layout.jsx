@@ -5,7 +5,9 @@ const Layout = ({children}) => {
     return (
         <>
             <Nav/>
+            <div className={"flex w-full"}>
             {children}
+            </div>
         </>
     );
 };
