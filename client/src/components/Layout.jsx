@@ -5,7 +5,7 @@ const Layout = ({children}) => {
     return (
         <>
             <Nav/>
-            <div className={"flex w-full"}>
+            <div className={"flex w-full justify-between  items-stretch"}>
             {children}
             </div>
         </>

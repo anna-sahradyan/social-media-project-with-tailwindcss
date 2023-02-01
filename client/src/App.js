@@ -16,8 +16,8 @@ const App = () => {
         <Layout className={"flex w-full "}>
             <ToastContainer/>
             <Routes>
-                <Route path={"/posts"} element={<Home/>}/>
                 <Route path={"/"} element={<Home/>}/>
+                <Route path={"/posts"} element={<Home/>}/>
                 <Route path={`/posts/search`} element={<Posts/>}/>
                 <Route path={`/posts/:id`} element={<PostDetails/>}/>
                 <Route path={'/creators/:name'} element={<CreatorOrTag/>}/>
@@ -26,10 +26,7 @@ const App = () => {
                     path="/auth"
                     element={!user ? <Auth/> : <Navigate replace to="/posts"/>}
                 />
-
-
             </Routes>
-            <Posts/>
         </Layout>
     </>);
 };
