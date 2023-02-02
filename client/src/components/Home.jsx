@@ -13,7 +13,7 @@ function useQuery() {
 const Home = () => {
     const [search, setSearch] = useState("");
     const [tags, setTags] = useState([]);
-    const [currentId, setCurrentId] = useState(0);
+    const [currentId, setCurrentId] = useState(null);
     const dispatch = useDispatch();
     const query = useQuery();
     const navigate = useNavigate();
@@ -32,28 +32,28 @@ const Home = () => {
     }
     return (
         <>
-          <div className={"flex w-full"}>
-                            <Posts setCurrentId={setCurrentId}/>
-                            {/*<AppBar className={""} position={"static"} color={"inherit"}>*/}
-                            {/*    <TextField onKeyDown={handleKeyDown} name="search" variant="outlined"*/}
-                            {/*               label="Search Memories" fullWidth value={search}*/}
-                            {/*               onChange={(e) => setSearch(e.target.value)}/>*/}
-                            {/*    <ChipInput*/}
-                            {/*        style={{margin: '10px 0'}}*/}
-                            {/*        value={tags}*/}
-                            {/*        onAdd={(chip) => handleAddChip(chip)}*/}
-                            {/*        onDelete={(chip) => handleDelete(chip)}*/}
-                            {/*        label="Search Tags"*/}
-                            {/*        variant="outlined"*/}
-                            {/*    />*/}
-                            {/*    <Button onClick={searchPost} className={classes.appBarSearch} variant="contained"*/}
-                            {/*            color="secondary">Search</Button>*/}
-                            {/*</AppBar>*/}
-                            <Form currentId={currentId} setCurrentId={setCurrentId}/>
+            <div className={"flex w-full"}>
+                <Posts setCurrentId={setCurrentId}/>
+                {/*<AppBar className={""} position={"static"} color={"inherit"}>*/}
+                {/*    <TextField onKeyDown={handleKeyDown} name="search" variant="outlined"*/}
+                {/*               label="Search Memories" fullWidth value={search}*/}
+                {/*               onChange={(e) => setSearch(e.target.value)}/>*/}
+                {/*    <ChipInput*/}
+                {/*        style={{margin: '10px 0'}}*/}
+                {/*        value={tags}*/}
+                {/*        onAdd={(chip) => handleAddChip(chip)}*/}
+                {/*        onDelete={(chip) => handleDelete(chip)}*/}
+                {/*        label="Search Tags"*/}
+                {/*        variant="outlined"*/}
+                {/*    />*/}
+                {/*    <Button onClick={searchPost} className={classes.appBarSearch} variant="contained"*/}
+                {/*            color="secondary">Search</Button>*/}
+                {/*</AppBar>*/}
+                <Form currentId={currentId} setCurrentId={setCurrentId}/>
 
 
 
-          </div>
+            </div>
         </>
     );
 };

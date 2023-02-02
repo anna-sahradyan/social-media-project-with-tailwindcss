@@ -1,13 +1,13 @@
 import React from 'react';
-import {Button, CardActions,Card, CardMedia, CardContent, Typography} from "@material-ui/core";
+import {Button, CardActions,Card, CardMedia, CardContent, Typography,IconButton} from "@material-ui/core";
 import moment from "moment";
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {useDispatch} from "react-redux";
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 
-const Post = ({post}) => {
+const Post = ({post,setCurrentId}) => {
     const dispatch = useDispatch();
     console.log(post)
     return (
@@ -19,10 +19,9 @@ const Post = ({post}) => {
                     <Typography variant={"body2"}>{moment(post.createdAt).fromNow()}</Typography>
                 </div>
                 <div>
-                    <Button style={{color: "white"}} size={"small"} onClick={() => {
-                    }}>
-                        <MoreHorizIcon fontSize={"medium"}/>
-                    </Button>
+                    <IconButton aria-label="settings" style={{color: "red"}} size={"small"} onClick={() =>setCurrentId(post._id)}>
+                        <MoreVertIcon />
+                    </IconButton>
                 </div>
                 <div>
                     <Typography variant="body2" color="textSecondary"
@@ -33,9 +32,9 @@ const Post = ({post}) => {
                     <Typography variant="body2" color="textSecondary" component="p">{post.message}</Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small" color="primary" >
+                    <Button size="small" color="primary" onClick={()=>{}} >
                         <ThumbUpAltIcon
-                        fontSize="small"/> Like {post.likeCount} </Button>
+                            fontSize="small"/> Like {post.likeCount} </Button>
                     <Button size="small" color="primary" ><DeleteIcon
                         fontSize="small"/> Delete</Button>
                 </CardActions>

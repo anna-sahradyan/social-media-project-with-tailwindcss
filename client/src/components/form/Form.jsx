@@ -1,24 +1,33 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Paper, TextField, Typography} from "@material-ui/core";
 import FileBase from "react-file-base64";
-import {useDispatch} from "react-redux";
-import {createPost} from "../../actions/posts";
+import {useDispatch, useSelector} from "react-redux";
+import {createPost, updatePost} from "../../actions/posts";
 
 
-const Form = ({currentId, setCurrentId, post}) => {
-    const user = false;
-
-
+const Form = ({currentId, setCurrentId}) => {
     const [postData, setPostData] = useState({creator: '', title: '', message: '', tags: '', selectedFile: ''});
     const dispatch = useDispatch();
-    const handleSubmit = async (e) => {
+    const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
+    const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(createPost(postData));
+        if (currentId) {
+            dispatch(updatePost(currentId, postData))
+        } else {
+            dispatch(createPost(postData));
+        }
+
 
     }
     const clear = () => {
 
-    }
+    };
+    useEffect(() => {
+        if(post){
+            setPostData(post)
+        }
+
+    }, [post])
     // if (!user) {
     //     return (
     //         <>
@@ -32,14 +41,14 @@ const Form = ({currentId, setCurrentId, post}) => {
     // }
     return (
         <>
-            <div className={"flex"} >
-                <Paper elevation={6} className={"w-96  right-2 absolute mt-10  h-[500px] "} >
+            <div className={"flex"}>
+                <Paper elevation={6} className={"w-96  right-2 absolute mt-10  h-[500px] "}>
                     <form noValidate onSubmit={handleSubmit} className={"flex flex-wrap m-10 "}>
                         <Typography className={"top-2 absolute left-1/4"}
-                                    variant={"h6"}>{currentId ? ` Editing "${post}"` : `Creating a Memory`}</Typography>
+                                    variant={"h6"}>{currentId ? ` Editing ${post.title}` : `Creating a Memory`}</Typography>
                         <TextField className={"-bottom-1"} name={"creator"} variant={"outlined"} label={"Creator"}
                                    fullWidth
-                                   value={post}
+                                   value={postData.creator}
                                    onChange={(e) => setPostData({...postData, creator: e.target.value})}/>
                         <TextField className={"-bottom-2"} name="title" variant="outlined" label="Title" fullWidth
                                    value={postData.title}
