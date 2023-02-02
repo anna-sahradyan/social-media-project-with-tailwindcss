@@ -17,13 +17,14 @@ const Form = ({currentId, setCurrentId}) => {
             dispatch(createPost(postData));
         }
 
-
+        clear()
     }
     const clear = () => {
-
+        setCurrentId(0);
+        setPostData({creator: '', title: '', message: '', tags: '', selectedFile: ''});
     };
     useEffect(() => {
-        if(post){
+        if (post) {
             setPostData(post)
         }
 
@@ -45,7 +46,7 @@ const Form = ({currentId, setCurrentId}) => {
                 <Paper elevation={6} className={"w-96  right-2 absolute mt-10  h-[500px] "}>
                     <form noValidate onSubmit={handleSubmit} className={"flex flex-wrap m-10 "}>
                         <Typography className={"top-2 absolute left-1/4"}
-                                    variant={"h6"}>{currentId ? ` Editing ${post.title}` : `Creating a Memory`}</Typography>
+                                    variant={"h6"}>{currentId ? ` Editing ` : `Creating a `} Memory</Typography>
                         <TextField className={"-bottom-1"} name={"creator"} variant={"outlined"} label={"Creator"}
                                    fullWidth
                                    value={postData.creator}

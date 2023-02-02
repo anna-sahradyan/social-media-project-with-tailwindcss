@@ -13,7 +13,7 @@ function useQuery() {
 const Home = () => {
     const [search, setSearch] = useState("");
     const [tags, setTags] = useState([]);
-    const [currentId, setCurrentId] = useState(null);
+    const [currentId, setCurrentId] = useState(0);
     const dispatch = useDispatch();
     const query = useQuery();
     const navigate = useNavigate();
@@ -32,7 +32,7 @@ const Home = () => {
     }
     return (
         <>
-            <div className={"flex w-full"}>
+            <div className={"flex w-full "}>
                 <Posts setCurrentId={setCurrentId}/>
                 {/*<AppBar className={""} position={"static"} color={"inherit"}>*/}
                 {/*    <TextField onKeyDown={handleKeyDown} name="search" variant="outlined"*/}
