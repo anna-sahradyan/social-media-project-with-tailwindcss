@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link  } from "react-router-dom";
 import {toast} from "react-toastify";
 import {Avatar, Button, Toolbar, Typography} from "@material-ui/core";
 
@@ -23,13 +23,12 @@ const Nav = () => {
                 </Link>
                 <Toolbar className={"flex w-96 justify-between items-center flex gap-50 relative -left-30"}>
                     {isAuth ?(<div>
-
                         <Typography className={"text-xl text-white left-1 absolute top-7"}>
                             name
                         </Typography>
                         <Avatar className={"right-20 top-5"} src={'/img/avatar.png'}>Avatar</Avatar>
                         <Button variant="contained" color={"secondary"} className={"left-60 -top-6"}>Logout</Button>
-                    </div>):(<Button variant="contained" className={"left-60 -top-0.5 text-white"}>Sign In</Button>)}
+                    </div>):(<Button variant="contained" component={Link} to={`/auth`} className={"left-60 -top-0.5 text-white"}>Sign In</Button>)}
                 </Toolbar>
 
 

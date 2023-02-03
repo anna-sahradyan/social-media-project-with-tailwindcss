@@ -6,7 +6,7 @@ import {Navigate, Route, Routes} from "react-router";
 import Posts from "./components/posts/Posts";
 import PostDetails from "./components/PostDetails";
 import CreatorOrTag from "./components/CreatorOrTag";
-import Auth from "./components/Auth";
+import Auth from "./components/Auth/Auth";
 import Home from "./components/Home";
 
 
