@@ -5,19 +5,43 @@ import {gapi} from "gapi-script"
 import Input from "./Input";
 import LogOut from "./LogOut";
 import Login from "./LogIn"
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router";
+import {signin, signup} from "../../actions/auth.js";
 
 const clientId = "677538970506-64hamj0mt4gjiqks3asqh1ao1kn3p3mq.apps.googleusercontent.com";
 const Auth = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const
+        [formData, setFormData] = useState({
+            firstName: "",
+            lastName: "lastName:",
+            email: "",
+            password: "password",
+            confirmPassword: ""
+        });
     const [isSignup, setIsSignup] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
     const handleShowPassword = () => setShowPassword(!showPassword);
-    const handleSubmit = () => {
+    //?submit
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (isSignup) {
+            dispatch(signup(formData, navigate))
+        } else {
+            dispatch(signin(formData, navigate))
+        }
 
     }
-    const handleChange = () => {
+    //?handleChange
+    const handleChange = (e) => {
+        setFormData({...formData, [e.target.name]: e.target.value});
+
 
     }
+    //?switchMode
     const switchMode = () => {
         setIsSignup((prevIsSignup) => !prevIsSignup);
         handleShowPassword(false)
@@ -32,7 +56,7 @@ const Auth = () => {
         gapi.load("client:auth2", start)
 
     }, []);
-    // let accessToken = gapi.auth.getToken().access_token
+
     return (
         <>
             <div className={"w-full h-screen bg-gradient-to-tl from-blue-300 to green-500 relative"}>
@@ -40,7 +64,7 @@ const Auth = () => {
                      className={" w-full h-full py-0 object-cover absolute mix-blend-overlay -z-50 bg-indigo-500 "}/>
 
                 <Paper elevation={3}
-                       className={"w-[550px] h-[auto] mx-auto mt-20 bg-amber-50 rounded-xl shadow-amber-800 border-2"}>
+                       className={"w-[450px] h-[auto] mx-auto mt-20 bg-amber-50 rounded-xl shadow-amber-800 border-2"}>
                     <Avatar style={{background: "#F50057", margin: " 5px auto"}}>
                         <LockOutlinedIcon/>
                     </Avatar>
