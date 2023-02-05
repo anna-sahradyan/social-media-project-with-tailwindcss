@@ -11,20 +11,19 @@ import Home from "./components/Home";
 
 
 const App = () => {
-    const user = false;
+    const user = JSON.parse(localStorage.getItem('profile'));
     return (<>
         <Layout className={"flex w-full "}>
             <ToastContainer/>
             <Routes>
-                <Route path={"/"} element={<Home/>}/>
-                <Route path={"/posts"} element={<Home/>}/>
-                <Route path={`/posts/search`} element={<Posts/>}/>
-                <Route path={`/posts/:id`} element={<PostDetails/>}/>
-                <Route path={'/creators/:name'} element={<CreatorOrTag/>}/>
-                <Route path={`/tags/:name`} element={<CreatorOrTag/>}/>
+                <Route path={"/"} element={<Home />} />
+                <Route path={"/posts"} element={<Home />} />
+                <Route path={"/"} element={<Navigate to="/posts" replace/>} />
+                <Route path={"/posts/search"} element={<Home />} />
+                <Route path={"/posts/:id"} element={<PostDetails />} />
                 <Route
                     path="/auth"
-                    element={!user ? <Auth/> : <Navigate replace to="/posts"/>}
+                    element={!user ? <Auth />:<Navigate replace to={"/posts"}  />  }
                 />
             </Routes>
         </Layout>

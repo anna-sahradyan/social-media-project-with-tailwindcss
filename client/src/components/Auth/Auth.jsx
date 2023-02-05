@@ -6,19 +6,20 @@ import Input from "./Input";
 import LogOut from "./LogOut";
 import Login from "./LogIn"
 import {useDispatch} from "react-redux";
-import {useNavigate} from "react-router";
+import {useLocation, useNavigate} from "react-router";
 import {signin, signup} from "../../actions/auth.js";
 
 const clientId = "677538970506-64hamj0mt4gjiqks3asqh1ao1kn3p3mq.apps.googleusercontent.com";
 const Auth = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
     const
         [formData, setFormData] = useState({
             firstName: "",
-            lastName: "lastName:",
+            lastName: "",
             email: "",
-            password: "password",
+            password: "",
             confirmPassword: ""
         });
     const [isSignup, setIsSignup] = useState(false);
@@ -44,7 +45,7 @@ const Auth = () => {
     //?switchMode
     const switchMode = () => {
         setIsSignup((prevIsSignup) => !prevIsSignup);
-        handleShowPassword(false)
+        setShowPassword(false)
     }
     useEffect(() => {
         function start() {
