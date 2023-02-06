@@ -41,7 +41,7 @@ const Form = ({currentId, setCurrentId}) => {
     if (!user?.result.name) {
         return (
             <>
-                <Paper className={"w-[300px] left-50 h-48 m-6"} >
+                <Paper className={"w-[300px] right-2 h-48 m-6 top-80 absolute"} >
                     <Typography variant={"h6"} align={"center"} className={"m-auto p-5"}>
                         Please Sign In to create your own memories and like other's memories.
                     </Typography>
@@ -52,7 +52,7 @@ const Form = ({currentId, setCurrentId}) => {
     return (
         <>
             <div className={"flex"}>
-                <Paper elevation={6} className={"w-96  right-2 absolute mt-10  h-[500px] "}>
+                <Paper elevation={6} className={"w-96  right-2 absolute mt-10  h-[500px] top-52 "}>
                     <form noValidate onSubmit={handleSubmit} className={"flex flex-wrap m-10 "}>
                         <Typography className={"top-2 absolute left-1/4"}
                                     variant={"h6"}>{currentId ? ` Editing ` : `Creating a `} Memory</Typography>

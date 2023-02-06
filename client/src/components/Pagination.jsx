@@ -1,8 +1,9 @@
-import React, {useEffect} from 'react';
-import { Pagination, PaginationItem } from '@material-ui/lab';
+import React from 'react';
+import {Pagination} from '@mui/lab';
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {getPosts} from "../actions/posts";
+import { PaginationItem } from '@mui/material';
+
 const Paginate = () => {
     const {numberOfPages} = useSelector((state) => state.posts);
     const dispatch = useDispatch();
@@ -15,12 +16,13 @@ const Paginate = () => {
         <>
             <Pagination
                 className={"grid place-content-around "}
-                count={numberOfPages}
-                page={ 1}
+                count={5}
+                page={1}
                 variant={"outlined"}
                 color={"primary"}
                 renderItem={(item) => (
-                    <PaginationItem {...item} component={Link} to={`/posts?page=${item.page}`}/>
+                    <PaginationItem {...item} component={Link} to={`/posts/page/${1}`}
+                    />
                 )}
             />
         </>

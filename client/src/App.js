@@ -3,9 +3,7 @@ import Layout from "./components/Layout";
 import 'react-toastify/dist/ReactToastify.css';
 import {ToastContainer} from "react-toastify";
 import {Navigate, Route, Routes} from "react-router";
-import Posts from "./components/posts/Posts";
 import PostDetails from "./components/PostDetails";
-import CreatorOrTag from "./components/CreatorOrTag";
 import Auth from "./components/Auth/Auth";
 import Home from "./components/Home";
 
@@ -16,14 +14,14 @@ const App = () => {
         <Layout className={"flex w-full "}>
             <ToastContainer/>
             <Routes>
-                <Route path={"/"} element={<Home />} />
+                <Route path={"/"} element={<Navigate to="/posts" />} />
                 <Route path={"/posts"} element={<Home />} />
-                <Route path={"/"} element={<Navigate to="/posts" replace/>} />
+                {/*<Route path={"/"} element={<Home />} />*/}
                 <Route path={"/posts/search"} element={<Home />} />
                 <Route path={"/posts/:id"} element={<PostDetails />} />
                 <Route
                     path="/auth"
-                    element={!user ? <Auth />:<Navigate replace to={"/posts"}  />  }
+                    element={!user ? <Auth />:<Navigate  to={"/posts"}  />  }
                 />
             </Routes>
         </Layout>
