@@ -25,10 +25,7 @@ const Home = () => {
     const searchQuery = query.get("searchQuery");
 
 
-    //?getPosts
-    useEffect(() => {
-        dispatch(getPosts());
-    }, [currentId, dispatch]);
+
 
 
     const handleAddChip = (tag) => setTags([...tags, tag]);
@@ -38,7 +35,8 @@ const Home = () => {
 
     const searchPost = () => {
         if (search.trim() || tags) {
-            dispatch(getPostsBySearch({search, tags: tags.join(",")}))
+            dispatch(getPostsBySearch({search, tags: tags.join(",")}));
+            navigate(`/posts/search?searchQuery=${search || "none"}&tags=${tags.join(",")}`)
         } else {
             navigate(`/`)
         }
@@ -51,33 +49,33 @@ const Home = () => {
     };
 
     return (<>
-            <div className={"flex w-full "}>
-                <Posts setCurrentId={setCurrentId}/>
-                <div className={"w-96 absolute right-2 top-20"}>
-                    <AppBar className={""} position={"static"} color={"inherit"}>
-                        <TextField onKeyDown={handleKeyDown} name="search" variant="outlined" label="Search Memories"
-                                   fullWidth value={search}
-                                   onChange={(e) => setSearch(e.target.value)}/>
-                        <ChipInput
-                            style={{margin: '10px 0'}}
-                            value={tags}
-                            onAdd={(chip) => handleAddChip(chip)}
-                            onDelete={(chip) => handleDelete(chip)}
-                            label="Search Tags"
-                            variant="outlined"
-                        />
-                        <Button onClick={searchPost} variant="contained"
-                                color="secondary">Search</Button>
-                    </AppBar>
-                </div>
-                <Form currentId={currentId} setCurrentId={setCurrentId}/>
-                <Paper elevation={6} className={"absolute w-96 h-10 bottom-60 right-2"}>
-                    <Pagination page={page}/>
-                </Paper>
-
-
+        <div className={"flex w-full "}>
+            <Posts setCurrentId={setCurrentId}/>
+            <div className={"w-96 absolute right-2 top-20"}>
+                <AppBar className={""} position={"static"} color={"inherit"}>
+                    <TextField onKeyDown={handleKeyDown} name="search" variant="outlined" label="Search Memories"
+                               fullWidth value={search}
+                               onChange={(e) => setSearch(e.target.value)}/>
+                    <ChipInput
+                        style={{margin: '10px 0'}}
+                        value={tags}
+                        onAdd={(chip) => handleAddChip(chip)}
+                        onDelete={(chip) => handleDelete(chip)}
+                        label="Search Tags"
+                        variant="outlined"
+                    />
+                    <Button onClick={searchPost} variant="contained"
+                            color="secondary">Search</Button>
+                </AppBar>
             </div>
-        </>);
+            <Form currentId={currentId} setCurrentId={setCurrentId}/>
+            <Paper elevation={6} className={"absolute w-96 h-10 bottom-80 right-2"}>
+                <Pagination page={page}/>
+            </Paper>
+
+
+        </div>
+    </>);
 };
 
 export default Home;
