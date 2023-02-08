@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e411cc2-8c17-4282-8bba-5baecf39f62e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/components/postDetailes/CommentsBlock.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/postDetailes/PostDetails.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/actions/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/posts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/api/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Pagination.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Pagination.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/PostDetails.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/form/Form.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/form/Form.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/posts/Post.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/posts/Post.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/posts/Posts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/posts/Posts.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/constants/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/constants/actionTypes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/reducers/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/reducers/posts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/post-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/post-controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/posts-router.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/posts-router.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,30 +41,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "javascript.nodejs.core.library.configured.version": "19.0.0",
-    "javascript.nodejs.core.library.typings.version": "18.11.8",
-    "last_opened_file_path": "D:/interview",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2022.2.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;19.0.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.11.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/interview&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2022.2.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\social-media-platform-with-tilwindcss\client\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\social-media-platform-with-tilwindcss\client\src\components\postDetailes" />
       <recent name="D:\social-media-platform-with-tilwindcss\client\src\components\Auth" />
     </key>
   </component>
@@ -74,7 +90,8 @@
       <workItem from="1675528160163" duration="21672000" />
       <workItem from="1675604668578" duration="283000" />
       <workItem from="1675605449160" duration="1618000" />
-      <workItem from="1675665244515" duration="28848000" />
+      <workItem from="1675665244515" duration="36722000" />
+      <workItem from="1675767048514" duration="17762000" />
     </task>
     <servers />
   </component>

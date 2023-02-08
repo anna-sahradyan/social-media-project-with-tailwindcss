@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
-import {Button, CardActions, Card, CardMedia, CardContent, Typography, IconButton} from "@material-ui/core";
+import {Button, CardActions, Card, CardMedia, CardContent, Typography, IconButton, } from "@material-ui/core";
+import { styled } from '@mui/material/styles';
+import ButtonBase from '@mui/material/ButtonBase';
 import moment from "moment";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {useDispatch} from "react-redux";
@@ -14,7 +16,9 @@ const Post = ({post, setCurrentId}) => {
     const [likes, setLikes] = useState(post?.likes);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
+    const openPostDetail = () => {
+        navigate(`/posts/${post._id}`)
+    }
     const userId = user?.result.googleId || user?.result?._id;
     const hasLikedPost = post?.likes?.find((like) => like === userId);
     const Likes = () => {
@@ -40,10 +44,15 @@ const Post = ({post, setCurrentId}) => {
             setLikes([...post.likes, userId]);
         }
     };
+//?ButtonBase
+
 
     return (
         <>
-            <Card className={"grid  w-[230px] h-full  border-2 shadow-indigo-300 cursor-pointer "}>
+
+            {/*<ButtonBase   className={"grid justify-between"} onClick={openPostDetail}>*/}
+            <Card onClick={openPostDetail} className={"grid  w-[230px] h-full  border-2 shadow-indigo-300 cursor-pointer "}>
+
                 <CardMedia className={"w-full h-60"} component="img" image={post.selectedFile || '/img/person1.jpg'}
                            title={post.title}/>
                 <div>
@@ -66,13 +75,15 @@ const Post = ({post, setCurrentId}) => {
                         <Typography variant="body2" gutterBottom color="textSecondary"
                                     component="p">{post.message}</Typography>
                     </CardContent>
+
                 </div>
+
                 <CardActions>
                     <Button size="small" color="primary" disabled={!user?.result} onClick={handleLike}>
                         <Likes/>
                     </Button>
                     {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
-                        <Button size="small" color="primary" style={{left: 20}}
+                       <Button size="small" color="primary" style={{left: 20}}
                                 onClick={() => dispatch(deletePost(post._id))}>
                             <DeleteIcon fontSize="small"/> &nbsp; Delete
                         </Button>
@@ -80,6 +91,7 @@ const Post = ({post, setCurrentId}) => {
                 </CardActions>
 
             </Card>
+        {/*</ButtonBase>*/}
         </>
     );
 };

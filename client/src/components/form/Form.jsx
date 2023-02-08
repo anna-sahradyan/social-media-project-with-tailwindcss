@@ -52,7 +52,7 @@ const Form = ({currentId, setCurrentId}) => {
     return (
         <>
             <div className={"flex"}>
-                <Paper elevation={6} className={"w-96  right-2 absolute mt-10  h-[500px] top-52 "}>
+                <Paper elevation={6} className={"w-96  right-2 absolute mt-10  h-[500px] top-64 "}>
                     <form noValidate onSubmit={handleSubmit} className={"flex flex-wrap m-10 "}>
                         <Typography className={"top-2 absolute left-1/4"}
                                     variant={"h6"}>{currentId ? ` Editing ` : `Creating a `} Memory</Typography>

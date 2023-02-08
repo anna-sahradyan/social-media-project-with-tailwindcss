@@ -4,7 +4,7 @@ import Posts from "./posts/Posts";
 import {AppBar, Container, Grid, Grow, TextField, Paper, Button} from "@material-ui/core";
 import ChipInput from "material-ui-chip-input";
 import {useDispatch} from "react-redux";
-import {getPosts, getPostsBySearch,} from "../actions/posts";
+import { getPostsBySearch,} from "../actions/posts";
 import {useLocation, useNavigate} from "react-router";
 import Pagination from "./Pagination";
 
@@ -52,6 +52,11 @@ const Home = () => {
         <div className={"flex w-full "}>
             <Posts setCurrentId={setCurrentId}/>
             <div className={"w-96 absolute right-2 top-20"}>
+                {(!searchQuery && !tags.length) && (
+                    <Paper elevation={6} className={"grid justify-center items-center w-96 h-10 right-[10px]  bottom-[30px]"}>
+                        <Pagination page={page}/>
+                    </Paper>
+                )}
                 <AppBar className={""} position={"static"} color={"inherit"}>
                     <TextField onKeyDown={handleKeyDown} name="search" variant="outlined" label="Search Memories"
                                fullWidth value={search}
@@ -69,9 +74,8 @@ const Home = () => {
                 </AppBar>
             </div>
             <Form currentId={currentId} setCurrentId={setCurrentId}/>
-            <Paper elevation={6} className={"absolute w-96 h-10 bottom-80 right-2"}>
-                <Pagination page={page}/>
-            </Paper>
+
+
 
 
         </div>

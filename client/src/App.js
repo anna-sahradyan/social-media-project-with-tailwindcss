@@ -3,7 +3,7 @@ import Layout from "./components/Layout";
 import 'react-toastify/dist/ReactToastify.css';
 import {ToastContainer} from "react-toastify";
 import {Navigate, Route, Routes} from "react-router";
-import PostDetails from "./components/PostDetails";
+import PostDetails from "./components/postDetailes/PostDetails";
 import Auth from "./components/Auth/Auth";
 import Home from "./components/Home";
 

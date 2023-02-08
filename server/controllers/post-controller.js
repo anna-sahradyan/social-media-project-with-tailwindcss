@@ -18,6 +18,18 @@ export const getPosts = async (req, res) => {
         })
     }
 };
+//?getPost
+export const getPost = async (req, res) => {
+    const {id} = req.params;
+    try {
+        const post = await PostMessage.findById(id);
+        res.status(200).json(post);
+    } catch (err) {
+        res.status(404).json({
+            message: err.message
+        })
+    }
+};
 //?getPostsBySearch
 //  Query=>/posts?page=3
 // params=>/posts/id
