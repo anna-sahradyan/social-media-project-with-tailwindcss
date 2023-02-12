@@ -9,7 +9,7 @@ import {useNavigate} from "react-router";
 const Form = ({currentId, setCurrentId}) => {
     const [postData, setPostData] = useState({title: '', message: '', tags: [], selectedFile: ''});
     const dispatch = useDispatch();
-    const post = useSelector((state) => (currentId ? state.posts.find((p) => p._id === currentId) : null));
+    const post = useSelector((state) => (currentId ? state.posts.posts.find((p) => p._id === currentId) : null));
     const user = JSON.parse(localStorage.getItem("profile"));
     const navigate = useNavigate();
     //?submit
@@ -41,7 +41,7 @@ const Form = ({currentId, setCurrentId}) => {
     if (!user?.result.name) {
         return (
             <>
-                <Paper className={"w-[300px] right-2 h-48 m-6 top-80 absolute"} >
+                <Paper className={"w-[300px] right-2 h-48 m-6 top-40 absolute"} >
                     <Typography variant={"h6"} align={"center"} className={"m-auto p-5"}>
                         Please Sign In to create your own memories and like other's memories.
                     </Typography>
@@ -52,7 +52,7 @@ const Form = ({currentId, setCurrentId}) => {
     return (
         <>
             <div className={"flex"}>
-                <Paper elevation={6} className={"w-96  right-2 absolute mt-10  h-[500px] top-64 "}>
+                <Paper elevation={6} className={"w-96  right-2 absolute mt-10  h-[500px] top-24 "}>
                     <form noValidate onSubmit={handleSubmit} className={"flex flex-wrap m-10 "}>
                         <Typography className={"top-2 absolute left-1/4"}
                                     variant={"h6"}>{currentId ? ` Editing ` : `Creating a `} Memory</Typography>

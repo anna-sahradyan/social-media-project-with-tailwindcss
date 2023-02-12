@@ -6,7 +6,7 @@ import Input from "./Input";
 import LogOut from "./LogOut";
 import Login from "./LogIn"
 import {useDispatch} from "react-redux";
-import {useLocation, useNavigate} from "react-router";
+import { useNavigate} from "react-router";
 import {signin, signup} from "../../actions/auth.js";
 
 const clientId = "677538970506-64hamj0mt4gjiqks3asqh1ao1kn3p3mq.apps.googleusercontent.com";

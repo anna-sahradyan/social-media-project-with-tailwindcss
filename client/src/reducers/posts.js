@@ -4,10 +4,9 @@ import {
     LIKE,
     UPDATE,
     DELETE,
-    FETCH_BY_SEARCH,
     START_LOADING,
     END_LOADING,
-    FETCH_POST
+    FETCH_POST, COMMENT
 } from "../constants/actionTypes.js";
 
 export default (state = {isLoading: true, posts: []}, action) => {
@@ -23,20 +22,25 @@ export default (state = {isLoading: true, posts: []}, action) => {
                 currentPage: action.payload.currentPage,
                 numberOfPages: action.payload.numberOfPages,
             };
+
         case FETCH_POST:
             return {...state, post: action.payload.post}
-        case FETCH_BY_SEARCH:
-            return {
-                ...state,
-                posts: action.payload
-            };
+
         case CREATE:
             return {...state, posts: [...state.posts, action.payload]};
+        case COMMENT:
+            return {
+                ...state,
+                posts: state.posts.map((post) => {
+                    if (post._id === action.payload._id) return action.payload;
+                    return post
+                }),
+            };
         case LIKE:
             return {
                 ...state,
                 posts: state.posts.map((post) => (post._id === action.payload._id ? action.payload : post))
-            }
+            };
         case UPDATE:
             return {
                 ...state,

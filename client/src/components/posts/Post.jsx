@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
-import {Button, CardActions, Card, CardMedia, CardContent, Typography, IconButton, } from "@material-ui/core";
-import { styled } from '@mui/material/styles';
-import ButtonBase from '@mui/material/ButtonBase';
+import {Button, CardActions, Card, CardMedia, CardContent, Typography, IconButton,} from "@material-ui/core";
 import moment from "moment";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {useDispatch} from "react-redux";
@@ -16,11 +14,21 @@ const Post = ({post, setCurrentId}) => {
     const [likes, setLikes] = useState(post?.likes);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
     const openPostDetail = () => {
         navigate(`/posts/${post._id}`)
     }
     const userId = user?.result.googleId || user?.result?._id;
     const hasLikedPost = post?.likes?.find((like) => like === userId);
+    const handleLike = async () => {
+        dispatch(likePost(post._id));
+        if (hasLikedPost) {
+            setLikes(post.likes.filter((id) => id !== userId));
+        } else {
+            setLikes([...post.likes, userId]);
+        }
+    };
+
     const Likes = () => {
         if (likes.length > 0) {
             return likes.find((like) => like === userId)
@@ -35,29 +43,19 @@ const Post = ({post, setCurrentId}) => {
 
         return <><ThumbUpAltOutlined fontSize="small"/>&nbsp;Like</>;
     }
-    const handleLike = async () => {
-        dispatch(likePost(post._id));
-
-        if (hasLikedPost) {
-            setLikes(post.likes.filter((id) => id !== userId));
-        } else {
-            setLikes([...post.likes, userId]);
-        }
-    };
-//?ButtonBase
 
 
     return (
         <>
-
-            {/*<ButtonBase   className={"grid justify-between"} onClick={openPostDetail}>*/}
-            <Card onClick={openPostDetail} className={"grid  w-[230px] h-full  border-2 shadow-indigo-300 cursor-pointer "}>
-
-                <CardMedia className={"w-full h-60"} component="img" image={post.selectedFile || '/img/person1.jpg'}
-                           title={post.title}/>
-                <div>
-                    <Typography variant={"h6"}>{post.name}</Typography>
-                    <Typography variant={"body2"}>{moment(post.createdAt).fromNow()}</Typography>
+            <div>
+            <Card className={"grid  w-[230px] h-[100%] border-2 shadow-indigo-300 cursor-pointer "}>
+                <div onClick={openPostDetail}>
+                    <CardMedia className={"w-full h-60"} component="img" image={post.selectedFile || '/img/person1.jpg'}
+                               title={post.title}/>
+                    <div className={"ml-2"}>
+                        <Typography variant={"h6"}>{post.name}</Typography>
+                        <Typography variant={"body2"}>{moment(post.createdAt).fromNow()}</Typography>
+                    </div>
                 </div>
                 {(user?.result?.googleId == post?.creator || user?.result?._id === post?.creator) && (<div>
                     <IconButton aria-label="settings" className={"absolute -top-72 left-48 "} style={{color: "red"}}
@@ -66,7 +64,7 @@ const Post = ({post, setCurrentId}) => {
                     </IconButton>
                 </div>)}
 
-                <div>
+                <div className={"ml-2"}>
                     <Typography variant="body2" color="textSecondary"
                                 component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
 
@@ -77,21 +75,21 @@ const Post = ({post, setCurrentId}) => {
                     </CardContent>
 
                 </div>
-
-                <CardActions>
-                    <Button size="small" color="primary" disabled={!user?.result} onClick={handleLike}>
-                        <Likes/>
-                    </Button>
-                    {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
-                       <Button size="small" color="primary" style={{left: 20}}
-                                onClick={() => dispatch(deletePost(post._id))}>
-                            <DeleteIcon fontSize="small"/> &nbsp; Delete
+                <div className={"w-[100%] py-2  h-auto   "}>
+                    <CardActions>
+                        <Button size="small" color="primary" disabled={!user?.result} onClick={handleLike}>
+                            <Likes/>
                         </Button>
-                    )}
-                </CardActions>
-
+                        {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
+                            <Button size="small" color="primary"
+                                    onClick={() => dispatch(deletePost(post._id))}>
+                                <DeleteIcon fontSize="small"/> &nbsp; Delete
+                            </Button>
+                        )}
+                    </CardActions>
+                </div>
             </Card>
-        {/*</ButtonBase>*/}
+            </div>
         </>
     );
 };

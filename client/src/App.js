@@ -14,14 +14,12 @@ const App = () => {
         <Layout className={"flex w-full "}>
             <ToastContainer/>
             <Routes>
-                <Route path={"/"} element={<Navigate to="/posts" />} />
-                <Route path={"/posts"} element={<Home />} />
-                {/*<Route path={"/"} element={<Home />} />*/}
-                <Route path={"/posts/search"} element={<Home />} />
-                <Route path={"/posts/:id"} element={<PostDetails />} />
+                <Route path={"/"} element={<Home/>}/>
+                <Route path={"/posts"} element={<Home/>}/>
+                <Route path={"/posts/:id"} element={<PostDetails/>}/>
                 <Route
                     path="/auth"
-                    element={!user ? <Auth />:<Navigate  to={"/posts"}  />  }
+                    element={!user ? <Auth/> : <Navigate to={"/posts"}/>}
                 />
             </Routes>
         </Layout>

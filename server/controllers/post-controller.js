@@ -1,8 +1,8 @@
 import PostMessage from "../models/Post.js";
 import mongoose from "mongoose";
-import express from 'express';
 
-const router = express.Router();
+
+
 //?getPosts
 export const getPosts = async (req, res) => {
     const {page} = req.query;
@@ -30,21 +30,6 @@ export const getPost = async (req, res) => {
         })
     }
 };
-//?getPostsBySearch
-//  Query=>/posts?page=3
-// params=>/posts/id
-export const getPostsBySearch = async (req, res) => {
-    const {searchQuery, tags} = req.query;
-    try {
-        const title = new RegExp(searchQuery, "i");
-        const posts = await PostMessage.find({$or: [{title}, {tags: {$in: tags.split(",")}}]});
-        res.json({data: posts});
-    } catch (err) {
-        res.status(404).json({
-            message: err.message
-        })
-    }
-}
 
 //?createPost
 export const createPost = async (req, res) => {
@@ -62,11 +47,13 @@ export const createPost = async (req, res) => {
 };
 //?updatePost
 export const updatePost = async (req, res) => {
-    const {id: _id} = req.params;
-    const post = req.body;
-    if (!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send("No post with that id");
+    const {id} = req.params;
+    const {title, message, creator, selectedFile, tags} = req.body;
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with that id:${id}`);
 
-    const updatedPost = await PostMessage.findByIdAndUpdate(_id, {...post, _id}, {new: true});
+    const updatedPost = {creator, title, message, tags, selectedFile, _id: id};
+    await PostMessage.findByIdAndUpdate(id, updatedPost, {new: true});
+
     res.json(updatedPost);
 
 };
@@ -102,3 +89,13 @@ export const likePost = async (req, res) => {
 
     res.status(200).json(updatedPost);
 }
+//?commentPost
+export const commentPost = async (req, res) => {
+    const {id} = req.params;
+    const {value} = req.body;
+    const post = await PostMessage.findById(id);
+    post.comments.push(value);
+    const updatedPost = await PostMessage.findByIdAndUpdate(id, post, {new: true});
+    res.json(updatedPost);
+}
+
