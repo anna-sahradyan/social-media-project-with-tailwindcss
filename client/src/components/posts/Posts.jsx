@@ -8,13 +8,15 @@ const Posts = ({setCurrentId}) => {
     if (!posts.length && !isLoading) return "No Posts!!"
     return (
         <>
-            <div className={"grid  grid-cols-4 gap-4 w-[calc(100%-400px)] p-2"}>
+            <div className={" grid  gap-4 grid-flow-dense p-2 "}>
                 {isLoading ? (<CircularProgress/>) : (
                     posts.map((item, index) =>
-                        <Post post={item} key={`${item}_${index}`} setCurrentId={setCurrentId}/>
+                        <div  key={`${item}_${index}`} className={" "}>
+                        <Post post={item} setCurrentId={setCurrentId}/>
+                        </div>
                     ))}
 
-            </div>
+</div>
         </>
     );
 };

@@ -51,19 +51,19 @@ const Form = ({currentId, setCurrentId}) => {
     }
     return (
         <>
-            <div className={"flex"}>
+
                 <Paper elevation={6} className={"w-96  right-2 absolute mt-10  h-[500px] top-24 "}>
                     <form noValidate onSubmit={handleSubmit} className={"flex flex-wrap m-10 "}>
                         <Typography className={"top-2 absolute left-1/4"}
                                     variant={"h6"}>{currentId ? ` Editing ` : `Creating a `} Memory</Typography>
-                        <TextField className={"-bottom-2"} name="title" variant="outlined" label="Title" fullWidth
+                        <TextField className={"-bottom-12"} name="title" variant="outlined" label="Title" fullWidth
                                    value={postData.title}
                                    onChange={(e) => setPostData({...postData, title: e.target.value})}/>
-                        <TextField className={"-bottom-3"} name="message" variant="outlined" label="Message" fullWidth
-                                   multiline minRows={4}
+                        <TextField className={"-bottom-16"} name="message" variant="outlined" label="Message" fullWidth
+                                   minRows={"Infinity"}
                                    value={postData.message}
                                    onChange={(e) => setPostData({...postData, message: e.target.value})}/>
-                        <TextField className={"-bottom-4"} name="tags" variant="outlined" label="Tags (coma separated)"
+                        <TextField className={"-bottom-20"} name="tags" variant="outlined" label="Tags (coma separated)"
                                    fullWidth
                                    value={postData.tags}
                                    onChange={(e) => setPostData({...postData, tags: e.target.value.split(',')})}/>
@@ -71,14 +71,14 @@ const Form = ({currentId, setCurrentId}) => {
                             <FileBase type="file" multiple={false}
                                       onDone={({base64}) => setPostData({...postData, selectedFile: base64})}/>
                         </div>
-                        <Button className={"-bottom-20"} variant="contained" color="primary" size="large" type="submit"
+                        <Button className={"-bottom-40"} variant="contained" color="primary" size="large" type="submit"
                                 fullWidth>Submit</Button>
-                        <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth
-                                className={"-bottom-24"}>Clear</Button>
+                        <Button variant="contained" color="secondary" size="large" onClick={clear} fullWidth
+                                className={"-bottom-44"}>Clear</Button>
                     </form>
 
                 </Paper>
-            </div>
+
         </>
     );
 };

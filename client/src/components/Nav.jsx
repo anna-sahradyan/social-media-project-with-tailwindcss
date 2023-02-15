@@ -43,7 +43,7 @@ const Nav = () => {
                         </Typography>
                         <Avatar className={"right-20 top-5"}
                                 src={user?.result.imgUrl}>{user?.result.name.charAt(0)}</Avatar>
-                        <Button variant="contained" color={"secondary"} className={"left-60 -top-6"}
+                        <Button  component={Link} to={`/auth`} variant="contained" color={"secondary"} className={"left-60 -top-6"}
                                 onClick={logoutHandler}>Logout</Button>
                     </div>) : (<Button variant="contained" component={Link} to={`/auth`}
                                        className={"left-60 -top-0.5 text-white"}>Sign In</Button>)}
