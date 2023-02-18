@@ -4,7 +4,7 @@ import {toast} from "react-toastify";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router";
 import {AUTH} from "../../constants/actionTypes.js";
-const clientId = "406499424953-kdubc7qch2v7v1oglk3kkij7vf6l0u8l.apps.googleusercontent.com";
+const clientId = "677538970506-vbqk3q1u3edstpp27pflahbphohet8qm.apps.googleusercontent.com";
 const LogIn = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
