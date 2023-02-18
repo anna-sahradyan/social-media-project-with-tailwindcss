@@ -1,2 +1,3 @@
 ## social-media-project-with-tailwindcss
-anna-sahradyan/frontendmedia
+Open [https://media-frontend-mu.vercel.app/) to view it in the browser.
+
