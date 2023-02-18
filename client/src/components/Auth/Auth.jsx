@@ -8,8 +8,7 @@ import Login from "./LogIn"
 import {useDispatch} from "react-redux";
 import { useNavigate} from "react-router";
 import {signin, signup} from "../../actions/auth.js";
-
-const clientId = "677538970506-64hamj0mt4gjiqks3asqh1ao1kn3p3mq.apps.googleusercontent.com";
+const clientId = "677538970506-vbqk3q1u3edstpp27pflahbphohet8qm.apps.googleusercontent.com";
 const Auth = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
